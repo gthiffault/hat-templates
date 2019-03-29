@@ -1,0 +1,32 @@
+{% set menuSecondaryEntries = craft.entries.section('menuSecondary').level(1).all() %}
+{% set menuMainEntries = craft.entries.section('menuMain').level(1).all() %}
+
+<div class="c-header_navigation">
+	<div class="c-header_navigation_secondary">
+		<div class="o-wrapper">
+			<nav class="c-navigation_secondary">
+			    <ul class="o-list-bare">
+			        {% for menuSecondaryEntry in menuSecondaryEntries %}
+			            <li><a href="{{ menuSecondaryEntry.menuLink.getUrl() }}">{{ menuSecondaryEntry.title }}</a></li>
+			        {% endfor %}
+			    </ul>
+			</nav>
+		</div>
+	</div>
+	<div class="c-header_navigation_primary">
+		<div class="o-wrapper">
+			<div class="c-header_flex">
+				<div class="c-header_logo">
+					<a href="{{siteUrl}}"><img src="assets/img/logos/humain-avant-tout-logo.png" alt=""></a>
+				</div>
+				<nav class="c-navigation_primary">
+				    <ul class="o-list-bare">
+				        {% for menuMainEntry in menuMainEntries %}
+				            <li><a href="{{ menuMainEntry.menuLink.getUrl() }}">{{ menuMainEntry.title }}</a></li>
+				        {% endfor %}
+				    </ul>
+				</nav>
+			</div>
+		</div>
+	</div>	
+</div>

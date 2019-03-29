@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{craft.app.language}}">
+	<head>
+		<link rel="stylesheet" href="assets/css/app.css">
+		<link href="https://fonts.googleapis.com/css?family=Esteban|Open+Sans" rel="stylesheet">
+	</head>	
+	<body class="{{entry.type}}">	
+		<header class="c-header">
+			{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
+		</header>
+		<main class="c-main">
+			{% block content %}{% endblock %}	
+		</main>
+		<footer class="c-footer">
+			
+		</footer>
+	</body>
+</html>					
