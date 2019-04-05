@@ -3,25 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="{{ alias(craft.app.sites.primarySite.baseUrl)}}/assets/css/app.css">
 		<link rel="stylesheet" href="https://use.typekit.net/mfo2hls.css">
-		  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
 	</head>	
 	<body class="{{entry.type}}">	
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v3.2&appId=516971002166010"></script>
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '516971002166010',
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-	    FB.AppEvents.logPageView();
-  };
-
-</script>		
+		<div id="fb-root"></div>
 		<header class="c-header">
 			{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
 		</header>
@@ -29,9 +13,7 @@
 			{% block content %}{% endblock %}	
 		</main>
 		<footer class="c-footer">
-			
 		</footer>
-	<script async defer href="{{ alias(craft.app.sites.primarySite.baseUrl)}}/assets/script/app.js"></script>	
-	
+		<script src="{{ alias(craft.app.sites.primarySite.baseUrl)}}/assets/script/app.js"></script>	
 	</body>
 </html>					

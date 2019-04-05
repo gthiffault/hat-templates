@@ -1,89 +1,41 @@
-{% extends "_layout/site.html" %}
-    {% block content %}
-    	<div class="o-wrapper">
-    		<div class="o-layout">
-    		<div class="o-layout__item u-1/2">
-<picture>
-	<source srcset="{{entry.testimonialsImage.one.url('testimonialsDesktop')}}" type="image/webp">
-		<source srcset="{{entry.testimonialsImageFallback.one.url('temoignagesDesktopJpeg')}}" type="image/jpg">
-		<img alt="{{entry.testimonialsImage.one().title}}">
-</picture>
-<div class="fb-share-button" data-href="https://www.facebook.com/humainavanttouthumanfirst/posts/563298790742549" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fhumainavanttouthumanfirst%2Fposts%2F563298790742549&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Partager</a></div>
-    		<p>Commentaires Facebook</p>
-<ul class="c-comment o-list-bare"></ul>
-<a class="c-comments_view">Voir tous les commentaires</a>
-    		</div>
+{# initialisation #}
+	{% set postId 	= "" %}
+	{% set content 	= "" %}
+	{% set imgWebp 	= "" %}
+	{% set imgJpeg 	= "" %}
 
-<div class="o-layout__item u-1/2">
-	{{entry.testimonialsContent}}
-</div>
+{# declaration #}
+	{% set postId 	= entry.testimonialsFbId %}
+	{% set content 	= entry.testimonialsContent %}
+	{% set imgWebp 	= entry.testimonialsImage %}
+	{% set imgJpeg 	= entry.testimonialsImageFallback %}
 
+{# code #}
 
-    		</div>
-    	</div>
-
-    	</div>
-
-<script>
-    var array = [];
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId            : '516971002166010',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v3.2'
-        });
-        //for getting posts from page we manage
-        FB.api(
-            '/432264780512618_563298790742549?summary=1',
-            'GET',
-            {access_token:'EAAHWLrDxevoBAJ4x4ny5Gvi9WlmADSfE3wHIlyhIfxnOUJjIecMjVqyoP10fT05JcbV9sMkrlnE8qAsfkrGoFI3EiMlXXe4SftQeFZBxSH6ccXFBWymGZCvDgiUIH7RxWdIZA5SqjzS0tGkLfY4Xe7lxPBziXL2E1o4ShQ6J2jjbLuLbfz6LNtiUOh1VN5hXWLjGLZBVmuAZCJjssXXGrwIS8oRb96vURCQZBrzq93ZAwZDZD',
-            fields:"comments.limit(10000){message,attachment,summary}"},
-              function (response) {
-                  if (response && !response.error) {
-                    console.log(response);
-                      $('c-main').html(response.comments['data'][3]['message']);
-                      console.log(response.comments['data'].length);
-                      var i;
-                      for (i = 0; i < response.comments['data'].length; i++) { 
-                          if(response.comments['data'][i]['message'] != null || response.comments['data'][i]['message'] != undefined) {
-                              array.push(response.comments['data'][i]);
-                          }
-                      }
-                  }
-              }
-        );
-    };    
-    setTimeout(function() {
-        var x;
-
-if(array.length > 4) {
-	$('.c-comments_view').show();
-}
-
-
-        for (x = 0; x < array.length; x++) { 
-        	if(x > 5) {
-				$('.c-comment').append($('<li class="js-hidden">').append(array[x]['message']));
-        	} else {
-        		$('.c-comment').append($('<li>').append(array[x]['message']));
-        	}
-
-        }
-    },500);
-
-
-$('.c-comments_view').on('click',function() {
-	$('.js-hidden').addClass('-visible')
-})
-
-
-
-</script>
-<div class="o-wrapper">
-  <div class="u-1/2">
-
-</div>
-</div>
-
+	{% extends "_layout/site.html" %}
+	{% block content %}
+		<div class="o-wrapper">
+			<span class="c-testimonials_id">{{postId}}</span>
+			<div class="o-layout">
+				<div class="o-layout__item u-1/2">
+					<picture alt="{{imgJpeg.one().title}}">
+						{% if imgWebp|length %}
+							<source srcset="{{imgWebp.one.url()}}" type="image/webp">
+						{% endif %}
+						{% if imgJpeg|length %}
+							<source srcset="{{imgJpeg.one.url('temoignagesDesktopJpeg')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
+						{% endif %}		
+						{% if imgWebp|length or imgJpeg|length %}	
+							<img src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
+						{% endif %}	
+					</picture>
+					<p>Commentaires Facebook</p>
+					<ul class="c-comment o-list-bare"></ul>
+					<a class="c-comments_view">Voir tous les commentaires</a>
+				</div>
+				<div class="o-layout__item u-1/2">
+					{{content}}
+				</div>
+			</div>
+		</div>
 	{% endblock %}
