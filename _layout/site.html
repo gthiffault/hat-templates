@@ -1,19 +1,26 @@
-<!doctype html>
-<html lang="{{craft.app.language}}">
-	<head>
-		<link rel="stylesheet" href="{{ alias(craft.app.sites.primarySite.baseUrl)}}/assets/css/app.css">
-		<link rel="stylesheet" href="https://use.typekit.net/mfo2hls.css">
-	</head>	
-	<body class="{{entry.type}}">	
-		<div id="fb-root"></div>
-		<header class="c-header">
-			{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
-		</header>
-		<main class="c-main">
-			{% block content %}{% endblock %}	
-		</main>
-		<footer class="c-footer">
-		</footer>
-		<script src="{{ alias(craft.app.sites.primarySite.baseUrl)}}/assets/script/app.js"></script>	
-	</body>
-</html>					
+{# initialisation #}
+	{% set baseUrl 	= "" %}
+
+{# declaration #}
+	{% set baseUrl 	= alias(craft.app.sites.primarySite.baseUrl) %}
+
+{# code #}
+	<!doctype html>
+	<html lang="{{craft.app.language}}">
+		<head>
+			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
+			<link rel="stylesheet" href="https://use.typekit.net/mfo2hls.css">
+		</head>	
+		<body class="{{entry.type}}">	
+			<div id="fb-root"></div>
+			<header class="c-header">
+				{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
+			</header>
+			<main class="c-main">
+				{% block content %}{% endblock %}	
+			</main>
+			<footer class="c-footer">
+			</footer>
+			<script src="{{ baseUrl }}/assets/script/app.js"></script>	
+		</body>
+	</html>					
