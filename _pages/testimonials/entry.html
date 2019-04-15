@@ -24,9 +24,7 @@
 						{% if imgJpeg|length %}
 							<source srcset="{{imgJpeg.one.url('temoignagesDesktopJpeg')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
 						{% endif %}		
-						{% if imgWebp|length or imgJpeg|length %}	
-							<img src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
-						{% endif %}	
+						<img src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 					</picture>
 					<p>Commentaires Facebook</p>
 					<ul class="c-comment o-list-bare"></ul>
