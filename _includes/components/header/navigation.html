@@ -16,6 +16,7 @@
 					        {% for menuSecondaryEntry in menuSecondaryEntries %}
 					            <li><a href="{{ menuSecondaryEntry.menuLink.getUrl() }}">{{ menuSecondaryEntry.title }}</a></li>
 					        {% endfor %}
+					        <li><a href="">En</a></li>
 				        {% endcache %}
 				    </ul>
 				</nav>
@@ -25,7 +26,13 @@
 			<div class="o-wrapper">
 				<div class="c-header_flex">
 					<div class="c-header_logo">
-						<a href="{{siteUrl}}"><img src="{{baseUrl}}/assets/img/logos/humain-avant-tout-logo.png" alt=""></a>
+						<a href="{{siteUrl}}">
+							<picture>
+								<source srcset="{{baseUrl}}/assets/img/logos/humain-avant-tout_logo-black.webp" type="image/webp">
+								<source srcset="{{baseUrl}}/assets/img/logos/humain-avant-tout_logo-black.svg" type="image/svg">
+								<img src="{{baseUrl}}/assets/img/logos/humain-avant-tout_logo-black.png" alt="{{'Human right'|t}}">
+							</picture>
+						</a>	
 					</div>
 					<nav class="c-navigation_primary">
 					    <ul class="o-list-bare">

@@ -3,36 +3,50 @@
 	{% set content 	= "" %}
 	{% set imgWebp 	= "" %}
 	{% set imgJpeg 	= "" %}
+	{% set date 	= "" %}
 
 {# declaration #}
 	{% set postId 	= entry.testimonialsFbId %}
 	{% set content 	= entry.testimonialsContent %}
 	{% set imgWebp 	= entry.testimonialsImage %}
 	{% set imgJpeg 	= entry.testimonialsImageFallback %}
-
+	{% set date 	= entry.postDate|date('d.m.Y') %}
 {# code #}
 	{% extends "_layout/site.html" %}
 	{% block content %}
-		<div class="o-wrapper">
-			<span class="c-testimonials_id">{{postId}}</span>
-			<div class="o-layout">
-				<div class="o-layout__item u-1/2">
-					<picture alt="{{imgJpeg.one().title}}">
-						{% if imgWebp|length %}
-							<source srcset="{{imgWebp.one.url()}}" type="image/webp">
-						{% endif %}
-						{% if imgJpeg|length %}
-							<source srcset="{{imgJpeg.one.url('temoignagesDesktopJpeg')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
-						{% endif %}		
-						<img src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
-					</picture>
-					<p>Commentaires Facebook</p>
-					<ul class="c-comment o-list-bare"></ul>
-					<a class="c-comments_view">Voir tous les commentaires</a>
-				</div>
-				<div class="o-layout__item u-1/2">
-					{{content}}
+		<section class="o-section c-testimonials_single">
+			<div class="o-wrapper">
+				<span class="c-testimonials_id">{{postId}}</span>
+				<div class="o-layout o-layout--flush">
+					<div id="c-testimonials_image" class="o-layout__item -img">
+						<picture>
+							{% if imgWebp|length %}
+								<source srcset="{{imgWebp.one.url()}}" type="image/webp">
+							{% endif %}
+							{% if imgJpeg|length %}
+								<source srcset="{{imgJpeg.one.url()}}" alt="{{imgJpeg.title}}" type="image/jpeg">
+							{% endif %}		
+							<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
+						</picture>
+
+					</div>
+					<div class="o-layout__item">
+						<p class="c-testimonials_date">{{date}}</p>
+						<h1>{{entry.title}}</h1>
+						<div class="c-testimonials_content">
+							{{content}}
+						</div>
+						<div class="c-testimonials_interaction">
+							<p>Vous avez aimez?</p>
+							<ul>
+								<li>Partager le témoignage</li>
+								<li>Afficher les commentaires</li>
+							</ul>
+							{# <ul class="c-comment o-list-bare"></ul> #}
+							{# <a class="c-comments_view">Voir tous les commentaires</a> #}					
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	{% endblock %}
