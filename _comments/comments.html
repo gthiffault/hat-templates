@@ -1,0 +1,24 @@
+{% spaceless %}
+
+{# ------------------------ #}
+{# Available Variables #}
+{# ------------------------ #}
+{# id, element, commentsQuery, settings #}
+{# ------------------------ #}
+
+<div class="c-testimonials_comments">
+    <div class="c-comments" data-role="comments">
+		<ul class="c-comments_ul o-list-bare">
+        	{% for comment in commentsQuery.all() %}
+            	{% include 'comment' %}
+        	{% endfor %}
+        </ul>
+    </div>
+</div>    
+<div class="c-testimonials_form -form">
+    {% if settings.canComment(element) %}
+        {% include 'form' %}
+    {% endif %}
+</div>
+
+{% endspaceless %}

@@ -1,0 +1,103 @@
+<li class="c-comments_li">
+{#     {% if comment.can('showAvatar') %}
+        <figure class="cc-i-figure" itemprop="creator" itemscope itemtype="http://schema.org/Person">
+            <p class="cc-i-image" itemprop="image">
+                {% if comment.author and comment.author.getPhoto() %}
+                    <img src="{{ comment.author.getPhoto().url({ width: 64, height: 64, mode: 'fit' }) }}" />
+                {% elseif settings.placeholderAvatar %}
+                    <img src="{{ settings.getPlaceholderAvatar().url({ width: 64, height: 64, mode: 'fit' }) }}" />
+                {% else %}
+                    <span class="cc-i-image-icon"></span>
+                {% endif %}
+            </p>
+        </figure>
+    {% endif %} #}
+
+{#     <div class="c-comments_wrap">
+        <div class="c-comments_content">
+            <header class="c-comments_header" role="meta">
+{#                 <div itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                    <strong class="c-comments_author" itemprop="name">
+                        {{- comment.author.fullName ?? comment.author -}}
+                    </strong>
+                </div> 
+                {% if comment.can('showTimeAgo') %}
+                    <div class="cc-ll">
+                        <span class="cc-ll-i">
+                            <small>{{ comment.commentDate|date('j.m.Y')}}</small>
+                        </span>
+                    </div>
+                {% endif %}
+
+             <small class="c-comments_header-links {{ comment.hasFlagged() ? 'has-flag' }}">
+                    {% if comment.can('flag') %}
+                        <a href="{{ comment.flagUrl }}" class="c-comments_flag" data-action="flag">{{ 'Flag' | t('comments') }}</a>
+                    {% endif %}
+                </small>
+            </header> #}
+{# 
+            <div class="c-comments_body">
+                <div class="c-comments_comment" data-role="message" dir="auto" itemprop="commentText">
+                    {% if comment.isFlagged() %}
+                        <p>[{{ 'Comment marked as inappropriate' | t('comments') }}]</p>
+                    {% elseif comment.isPoorlyRated() %}
+                        <p>[{{ 'Comment hidden due to low rating' | t('comments') }}]</p>
+                    {% else %}
+                        <p>{{ comment.comment | nl2br }}</p>
+                    {% endif %}
+                </div>
+            </div> #}
+<small>{{ comment.commentDate|date('j.m.Y')}}</small>
+            <p>{{ comment.comment | nl2br }}</p>
+
+            {# <div class="c-comments_footer"> #}
+{#                 {% if comment.can('vote') %}
+                    <span class="cc-v" data-role="voting">
+                        <span class="cc-v-count" data-role="likes">{{ comment.votes ?: '' }}</span>
+                        <a href="{{ comment.upvoteUrl }}" class="cc-v-up" data-action="upvote"></a>
+                        <a href="{{ comment.downvoteUrl }}" class="cc-v-down" role="button" data-action="downvote"></a>
+                    </span>
+                {% endif %} #}
+
+{#                 <div class="cc-ll"> #}
+{#                     {% if comment.can('reply') %}
+                        <span class="cc-ll-i">
+                            <a href="#" class="c-comments_reply" data-action="reply" itemprop="replyToUrl">
+                                {{ 'Reply'|t }}
+                            </a>
+                        </span>
+                    {% endif %} #}
+
+                    {# {% if comment.can('edit') %}
+                        <span class="cc-ll-i">
+                            <a href="#" class="c-comments_edit" data-action="edit">
+                                {{ 'Edit' | t('comments') }}
+                            </a>
+                        </span>
+                    {% endif %}
+
+                    {% if comment.can('trash') %}
+                        <span class="cc-ll-i">
+                            <a href="{{ comment.trashUrl }}" class="c-comments_delete" data-action="delete">
+                                {{ 'Delete' | t('comments') }}
+                            </a>
+                        </span>
+                    {% endif %} #}
+   {#              </div>
+            </div>
+        </div> #}
+
+{#         <div data-role="reply"></div>
+
+        <div data-role="errors" class="cc-e"></div>
+        <div data-role="notice" class="cc-n"></div> #}
+
+{#         <div data-role="replies">
+            {% if comment.children | length %}
+                {% for nestedComment in comment.children.all() %}
+                    {% include 'comment' with { comment: nestedComment } %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div> #}
+</li>

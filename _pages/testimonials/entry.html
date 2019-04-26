@@ -28,7 +28,6 @@
 							{% endif %}		
 							<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 						</picture>
-
 					</div>
 					<div class="o-layout__item">
 						<p class="c-testimonials_date">{{date}}</p>
@@ -37,14 +36,13 @@
 							{{content}}
 						</div>
 						<div class="c-testimonials_interaction">
-							<p>Vous avez aimez?</p>
+							<p>Vous avez aimé?</p>
 							<ul>
 								<li>Partager le témoignage</li>
-								<li>Afficher les commentaires</li>
-							</ul>
-							{# <ul class="c-comment o-list-bare"></ul> #}
-							{# <a class="c-comments_view">Voir tous les commentaires</a> #}					
+								<li class="c-comments_toggle">Afficher les commentaires</li>
+							</ul>				
 						</div>
+						{{ craft.comments.render(entry.id) }}
 					</div>
 				</div>
 			</div>

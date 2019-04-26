@@ -1,0 +1,51 @@
+<div class="c-form" data-role="form">
+    <p>Laisser un commentaire</p>
+{#     {% if settings.showAvatar %}
+        <figure class="cc-i-figure">
+            <p class="cc-i-image">
+                {% if currentUser and currentUser.getPhoto() %}
+                    <img src="{{ currentUser.getPhoto().url({ width: 64, height: 64, mode: 'fit' }) }}" />
+                {% elseif settings.placeholderAvatar %}
+                    <img src="{{ settings.getPlaceholderAvatar().url({ width: 64, height: 64, mode: 'fit' }) }}" />
+                {% else %}
+                    <span class="cc-i-image-icon"></span>
+                {% endif %}
+            </p>
+        </figure>
+    {% endif %} #}
+
+        <form class="cc-f-wrap" role="form" method="post" accept-charset="UTF-8">
+            <input type="hidden" name="action" value="comments/comments/save">
+            <input type="hidden" name="elementId" value="{{ element.id }}">
+            <input type="hidden" name="siteId" value="{{ element.siteId }}">
+            <input type="hidden" name="newParentId" value="">
+            <input type="hidden" name="commentId" value="">
+            {{ csrfInput() }}
+            {{ craft.comments.protect() }}
+
+            {% if not currentUser %}
+{#                 <div class="cc-f-row">
+                    <div class="cc-f-col"> #}
+                        <label for="">Noms*</label>
+                        <input class="cc-f-input" name="fields[name]" type="text" required>
+   {#                      <div class="cc-e"></div> #}
+{#                     </div> #}
+                    {# <div class="cc-f-col">
+                        <input class="cc-f-input" name="fields[email]" type="email" placeholder="{{ 'Your email' | t('comments') }}">
+                        <div class="cc-e"></div>
+                    </div> #}
+                {# </div> #}
+            {% endif %}
+            <label for="">Commentaire*</label>
+            <p class="lead emoji-picker-container">
+            <textarea class="cc-f-textarea" name="fields[comment]"rows="6" type="email" data-emojiable="true"></textarea></p>
+{#             <div class="cc-e"></div> #}
+
+
+{# 
+            <div data-role="notice" class="cc-n"></div> #}
+            <div class="c-form_btn">
+                <button class="c-btn c-btn--primary" type="submit">{{ 'Soumettre' | t('comments') }}</button>
+            </div>
+        </form>
+</div>

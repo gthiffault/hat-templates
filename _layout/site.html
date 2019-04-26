@@ -8,6 +8,7 @@
 	<!doctype html>
 	<html lang="{{craft.app.language}}">
 		<head>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
 			<link rel="stylesheet" href="https://use.typekit.net/mfo2hls.css">
 		</head>	
@@ -15,6 +16,7 @@
 			<div id="fb-root"></div>
 			<header class="c-header">
 				{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
+				{# NAVIGATION #} {% include '_includes/components/header/banner.html' %}
 			</header>
 			<main class="c-main">
 				{% block content %}{% endblock %}	
