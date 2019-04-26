@@ -6,7 +6,7 @@
 {# id, element, commentsQuery, settings #}
 {# ------------------------ #}
 
-<div class="c-testimonials_comments">
+<div  id="{{id}}" class="c-testimonials_comments">
     <div class="c-comments" data-role="comments">
 		<ul class="c-comments_ul o-list-bare">
         	{% for comment in commentsQuery.all() %}
