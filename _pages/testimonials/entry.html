@@ -34,6 +34,40 @@
 						<h1>{{entry.title}}</h1>
 						<div class="c-testimonials_content">
 							{{content}}
+
+{% for block in entry.Resources.all() %}
+
+    {% if block.type == "ResourcesTab" %}
+
+        <h4>{{ block.ResourcesName }}</h4>
+        {{block.ResourcesDescription}}
+
+    {% elseif block.type == "text" %}
+
+        {{ block.text|markdown }}
+
+    {% elseif block.type == "image" %}
+
+        {% set image = block.image.one() %}
+        {% if image %}
+            <img src="{{ image.getUrl('thumb') }}" width="{{ image.getWidth('thumb') }}" height="{{ image.getHeight('thumb') }}" alt="{{ image.title }}">
+        {% endif %}
+
+    {% elseif block.type == "quote" %}
+
+        <blockquote>
+            <p>{{ block.quote }}</p>
+            <cite>– {{ block.cite }}</cite>
+        </blockquote>
+
+    {% endif %}
+
+{% endfor %}
+
+
+
+
+
 						</div>
 						<div class="c-testimonials_interaction">
 							<p>Vous avez aimé?</p>

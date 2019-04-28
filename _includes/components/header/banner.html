@@ -1,7 +1,18 @@
 <div class="c-header_banner">
-	<div class="c-banner {% if entry.type == 'home'%}-home}{% else %}-page{% endif%}">
+	<div class="c-banner {% if entry.type == 'home'%}-home{% else %}-page{% endif%}">
+		{% if entry.type == "home" %}
+		<div class="c-header_background-hero" style="background: url({{entry.homeImage.one.url()}})">
+			<div class="o-wrapper">
+			<div class="c-banner_content">
+			<p class="c-page-title">{{entry.homeTitle}}</p>
+			</div>
+		</div>	
+		</div>	
+		{% else %}
 		<div class="c-header_background-hero">
-				<h2>Témoignages</h2>
-		</div>
+			<h2>Témoignages</h2>
+		</div>		
+		{% endif %}
 	</div>
 </div>
+
