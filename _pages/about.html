@@ -1,3 +1,19 @@
 {% extends "_layout/site.html" %}
     {% block content %}
+    	<section class="o-section c-side-by-side -desktop">
+    		<div class="o-wrapper -three">
+    		<div class="o-layout o-layout--xlarge">
+    			<div class="o-layout__item c-side-left u-9/20">
+    				<img src="{{entry.aboutImgNTxtImage.one.url('aboutZero')}}" alt="">
+    				<div class="c-side-left_content">{{entry.aboutTxtNImgContent}}</div>
+    			</div>
+    			<div class="o-layout__item c-side-right u-11/20">
+    				<div class="c-side-right_content">{{entry.aboutImgNTxtContent}}</div>
+    				<img src="{{entry.aboutTxtNImgImage.one.url('aboutOne')}}" alt="">
+    			</div>	
+    		</div>
+    		</div>
+    	</section>
+        {% include "_includes/components/main/testimonials.html" with { currentpost:'teamMember',limit:6,posttype:'team',title:'Our team'} %}
+        {% include "_includes/components/main/accordion.html" with {posttype: 'about'} %}
 	{% endblock %}

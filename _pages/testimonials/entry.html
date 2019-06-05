@@ -33,37 +33,29 @@
 						<p class="c-testimonials_date">{{date}}</p>
 						<h1>{{entry.title}}</h1>
 						<div class="c-testimonials_content">
-							{{content}}
+							<div class="c-content">
+								{{content}}
+							</div>
 
+							{% if entry.Resources %}
+							<ul class="c-testimonials_resources">
 {% for block in entry.Resources.all() %}
 
     {% if block.type == "ResourcesTab" %}
-
+<li>
         <h4>{{ block.ResourcesName }}</h4>
         {{block.ResourcesDescription}}
+        <ul class="c-resources-sm">	
+        	<li class="c-resources-sm_web"><a href="{{block.ResourcesWebsite}}">Site</a></li> 
+        	<li class="c-resources-sm_fb"><a href="{{block.ResourcesFacebook}}">Fb</a></li> 
+        </ul>
 
-    {% elseif block.type == "text" %}
-
-        {{ block.text|markdown }}
-
-    {% elseif block.type == "image" %}
-
-        {% set image = block.image.one() %}
-        {% if image %}
-            <img src="{{ image.getUrl('thumb') }}" width="{{ image.getWidth('thumb') }}" height="{{ image.getHeight('thumb') }}" alt="{{ image.title }}">
-        {% endif %}
-
-    {% elseif block.type == "quote" %}
-
-        <blockquote>
-            <p>{{ block.quote }}</p>
-            <cite>– {{ block.cite }}</cite>
-        </blockquote>
-
+</li>
     {% endif %}
 
 {% endfor %}
-
+</ul>
+{% endif %}
 
 
 

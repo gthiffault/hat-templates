@@ -1,9 +1,38 @@
 {% extends "_layout/site.html" %}
     {% block content %}
-<div class="fb-comment-embed" data-href="https://www.facebook.com/humainavanttouthumanfirst/posts/560041114401650" data-width="560" data-include-parent="true"></div>
-<div class="fb-comments" data-href="https://www.facebook.com/photo.php?fbid=10157044569988419&set=a.10152771026453419&type=3&theater" data-numposts="10" data-order-by="time"></div>
-
-<div class="fb-comment-embed" data-href="https://www.facebook.com/humainavanttouthumanfirst/posts/560041114401650?comment_id=560128647726230&amp;comment_tracking=%7B%22tn%22%3A%22R%2326%22%7D" data-width="560" data-include-parent="true"></div>
-
-
+		{% include "_includes/components/main/content.html" with {button: true} %}
+		{% include "_includes/components/main/testimonials.html" with { currentpost:'testimonialsList',limit:6,posttype:'home',title:'The testimonials'} %}
+		<section class="o-section c-txt-image -version-zero">
+            <div class="c-content_wrap">
+				<div class="o-wrapper -two -a">
+					<div class="c-content">
+						<h2>{{entry.txtNImgTitle}}</h2>
+						{{entry.txtNImgContent}}
+						<a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a>
+					</div>
+                </div>
+            </div>
+            <div class="o-ratio o-ratio--home-image c-image" style="background: url('{{entry.txtNImgImage.one().url()}}')"></div>                
+		</section>
+		<section class="o-section c-image-txt -version-zero">
+            <div class="o-ratio o-ratio--home-image c-image" style="background: url('{{entry.imgNTxtImage.one().url()}}')">
+            </div>  			
+            <div class="c-content_wrap">
+				<div class="o-wrapper -two -b">
+					<div class="c-content">
+						<h2>{{entry.imgNTxtTitle}}</h2>
+						{{entry.imgNTxtContent}}
+						<a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a>
+					</div>
+                </div>
+            </div>             
+		</section>	
+		<section class="o-section c-quote">
+			<div class="o-wrapper -one">
+				<div class="c-quote_wrap">
+           			<p>{{entry.homeQuote|nl2br}}</p>
+           		</div>
+           		<p class="c-quote_author">- {{entry.homeQuoteAuthor}}</p>
+       		</div>
+		</section>				
 	{% endblock %}

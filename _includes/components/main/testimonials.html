@@ -1,0 +1,7 @@
+<section class="o-section c-list -{{posttype}}">
+	<div class="o-wrapper">
+		{% if title|length %}<h2>{{title|t}}</h2>{% endif %}
+			{% include "_includes/components/main/list-ul.html" %}
+		{% if posttype == "home" %}<a class="c-btn c-btn--main" href="">{{"See all testimonials"|t}}</a>{% endif %}		
+	</div>
+</section>

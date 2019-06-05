@@ -1,0 +1,62 @@
+<section class="o-section c-accordion -{{posttype}}">
+	<div class="o-wrapper -three">
+		<ul class="o-list-bare c-accordion_ul">
+			{% if posttype == "about" or posttype == "faq" or posttype == "media" %}
+			{% set postMatrix = "" %}
+			{% if posttype == "about" or posttype == "faq" %}
+				{% set postMatrix = entry.listContent.all() %}
+		      {% elseif posttype == "media" %}	
+				{% set postMatrix = entry.listMedia.all() %}
+		    {% endif %}	
+		    {% for block in postMatrix %}
+		    	{% if block.type == "listContentTab" %}
+		        	<li>
+		        		<div class="c-accordion_title">
+		        			<h3>{{ block.listContentTitle }}</h3>
+		        		</div>
+		        		<div class="c-accordion_content_wrap">
+		        			<div class="c-accordion_content">
+		        			{{block.listContentText}}
+		        		</div>
+		        	</li>
+				{% elseif block.type == "listMediaTab" %}	
+		        	{% for row in block.listTable.all() %}
+		        		<li>
+		        			<div class="c-accordion_title">
+		        				<h3>{{ row.sectionMediaTitle }}</h3>
+		        			</div>
+		        			<div class="c-accordion_content_wrap">
+		        				<div class="c-accordion_content">
+		        					<h4>{{row.sectionMediaSubtitle}}</h4>
+									<ul>
+										{% for matrix in row.sectionMedia.all() %}
+        									<li>
+        										<h5><a href="{{matrix.sectionMediaLink.getUrl()}}" target="_blank">{{ matrix.sectionMediaTitle }}</a></h5>
+        										{{matrix.sectionMediaDescription}}
+        									</li>
+										{% endfor %}
+									</ul>			
+		        				</div>
+		        			</div>
+		        		</li>
+		        	{% endfor %}		        			        			    		    		
+		    	{% endif %}		    	
+			{% endfor %}
+			{% elseif posttype == "resources" %}
+{% set pages = craft.entries.section('resourcesList').level(1).all() %}
+    <ul>
+        {% for page in pages %}
+            <li>		        			<div class="c-accordion_title">
+		        				<h3>{{ page.title }}</h3>
+		        			</div>
+		        		<div class="c-accordion_content_wrap">
+		        			<div class="c-accordion_content">
+		        			{{page.resourcesContent}}
+		        		</div>		        			
+		        		</li>
+        {% endfor %}
+    </ul>
+			{% endif %}	
+		</ul>
+	</div>
+</section>

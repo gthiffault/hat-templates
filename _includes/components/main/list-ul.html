@@ -1,0 +1,25 @@
+{% set items = craft.entries.section(currentpost).level(1).limit(limit) %}
+
+<ul class="o-layout o-layout--medium c-list_ul">
+    {% for item in items %}
+    	{% if posttype == "home" or posttype == "testimonials" %}
+			{% set imgJpeg 	= item.testimonialsImageFallback %}
+    	{% elseif posttype == "team" %}
+			{% set imgJpeg 	= item.teamImage %}
+		{% endif %}
+        <li class="o-layout__item u-1/3 c-list_item">
+        	<figure>
+        		{% if posttype == "home" or posttype == "testimonials" %}<a href="{{item.url()}}">{% endif %}
+					<picture>
+						{% if imgJpeg|length %}
+							<source srcset="{{imgJpeg.one.url('list')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
+						{% endif %}		
+						<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
+					</picture>  
+					<figcaption>  	        			
+	        		</figcaption>
+        		{% if posttype == "home" or posttype == "testimonials" %}</a>{% endif %}
+        	</figure>
+        </li>
+	{% endfor %}
+</ul>	

@@ -1,17 +1,23 @@
 <div class="c-header_banner">
 	<div class="c-banner {% if entry.type == 'home'%}-home{% else %}-page{% endif%}">
 		{% if entry.type == "home" %}
-		<div class="c-header_background-hero" style="background: url({{entry.homeImage.one.url()}})">
-			<div class="o-wrapper">
-			<div class="c-banner_content">
-			<p class="c-page-title">{{entry.homeTitle}}</p>
-			</div>
-		</div>	
-		</div>	
+			<div class="c-header_background-hero" style="background: url({{entry.homeImage.one.url()}})">
+				<div class="o-wrapper">
+					<div class="c-banner_content">
+						<p class="c-page-title">{{entry.homeTitleZero}}</p>
+						<p class="c-page-title">{{entry.homeTitleOne}}</p>
+						<p class="c-page-subtitle">Un humain à la fois</p>
+					</div>
+				</div>	
+			</div>	
+		{% elseif entry.type == "testimonialsList" %}	
+			<div class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}})">
+				<h2>{{"Testimonials"|t}}</h2>
+			</div>			
 		{% else %}
-		<div class="c-header_background-hero">
-			<h2>Témoignages</h2>
-		</div>		
+			<div class="c-header_background-hero" style="background: url({{entry.pageImage.one.url()}})">
+				<h2>{{entry.title}}</h2>
+			</div>		
 		{% endif %}
 	</div>
 </div>
