@@ -1,6 +1,6 @@
 {% extends "_layout/site.html" %}
     {% block content %}
-		{% include "_includes/components/main/content.html" with {button: false} %}
+		{% include "_includes/components/main/content.html" with {button: false,posttype:'testimonials'} %}
 		{% include "_includes/components/main/testimonials.html" with { currentpost:'testimonialsList',limit:6,posttype:'testimonials',title:""} %}
 
 	{% endblock %}

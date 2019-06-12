@@ -11,10 +11,10 @@
 		    {% for block in postMatrix %}
 		    	{% if block.type == "listContentTab" %}
 		        	<li>
-		        		<div class="c-accordion_title">
+		        		<div class="c-accordion_title {% if posttype == 'about'%}-js-accordion-active{% endif %}">
 		        			<h3>{{ block.listContentTitle }}</h3>
 		        		</div>
-		        		<div class="c-accordion_content_wrap">
+		        		<div class="c-accordion_content_wrap {% if posttype == 'about'%}-displayed{% endif %}">
 		        			<div class="c-accordion_content">
 		        			{{block.listContentText}}
 		        		</div>
@@ -22,10 +22,10 @@
 				{% elseif block.type == "listMediaTab" %}	
 		        	{% for row in block.listTable.all() %}
 		        		<li>
-		        			<div class="c-accordion_title">
+		        			<div class="c-accordion_title -js-accordion-active">
 		        				<h3>{{ row.sectionMediaTitle }}</h3>
 		        			</div>
-		        			<div class="c-accordion_content_wrap">
+		        			<div class="c-accordion_content_wrap -displayed">
 		        				<div class="c-accordion_content">
 		        					<h4>{{row.sectionMediaSubtitle}}</h4>
 									<ul>

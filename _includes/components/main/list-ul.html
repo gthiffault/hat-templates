@@ -16,7 +16,15 @@
 						{% endif %}		
 						<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 					</picture>  
-					<figcaption>  	        			
+					<figcaption> 
+						<div class="c-list_content">
+							<p class="c-list_title">{{item.title}}</p> 	
+							{% if posttype == "home" or posttype == "testimonials" %}        	
+								<p class="c-list_desc">{{item.metaDescription}}</p>		
+							{% elseif posttype == "team" %}
+								<p class="c-list_desc">{{item.teamRole}}</p>		
+							{% endif %}
+						</div>
 	        		</figcaption>
         		{% if posttype == "home" or posttype == "testimonials" %}</a>{% endif %}
         	</figure>

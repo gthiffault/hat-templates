@@ -1,3 +1,48 @@
 {% extends "_layout/site.html" %}
     {% block content %}
+        {% include "_includes/components/main/content.html" with {button: false,posttype:'contact'} %}
+        <section class="o-section c-form">
+        	<div class="o-wrapper -four">
+				<form id="form" method="post" action="" accept-charset="UTF-8" class="-form -contact">
+				    {{ csrfInput() }}
+				    <input type="hidden" name="action" value="contact-form/send">
+
+				    <input id="subject" type="hidden" name="subject" value="Message">
+
+				    <label for="from-name">{{'Full name'|t}}</label>
+				    <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+
+				    <label for="from-email">{{'Email'|t}}</label>
+				    <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+
+				    <label for="message">Message</label>
+				    <textarea rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
+
+					<label for="from-email">{{"Merci d'indiquer vos disponibilités pour une rencontre, si vous souhaitez partager votre histoire."|t}}</label>
+
+					<ul class="o-list-bare">
+						<li>
+							<input type="radio" id="test1" name="radio-group">
+							<label for="test1">Avant-midi</label>
+						</li>
+						<li>
+							<input type="radio" id="test2" name="radio-group">
+							<label for="test2">Après-midi</label>
+						</li>
+						<li>
+							<input type="radio" id="test3" name="radio-group">
+							<label for="test3">Soir</label>
+						</li>
+						<li>
+							<input type="radio" id="test4" name="radio-group">
+							<label for="test4">En tout temps</label>
+						</li>												
+					</ul>	
+
+					<div class="c-form_btn">
+				    	<input type="submit" value="{{'Send'|t}}" class="c-btn c-btn--main">
+				    </div>
+				</form>				
+        	</div>
+        </section>
 	{% endblock %}

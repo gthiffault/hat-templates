@@ -1,6 +1,6 @@
 {% extends "_layout/site.html" %}
     {% block content %}
-		{% include "_includes/components/main/content.html" with {button: true} %}
+		{% include "_includes/components/main/content.html" with {button: true,posttype:'home'} %}
 		{% include "_includes/components/main/testimonials.html" with { currentpost:'testimonialsList',limit:6,posttype:'home',title:'The testimonials'} %}
 		<section class="o-section c-txt-image -version-zero">
             <div class="c-content_wrap">
