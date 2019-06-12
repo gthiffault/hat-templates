@@ -1,7 +1,7 @@
 {% extends "_layout/site.html" %}
     {% block content %}
         {% include "_includes/components/main/content.html" with {button: false,posttype:'contact'} %}
-        <section class="o-section c-form">
+        <section class="o-section c-form -contact">
         	<div class="o-wrapper -four">
 				<form id="form" method="post" action="" accept-charset="UTF-8" class="-form -contact">
 				    {{ csrfInput() }}
