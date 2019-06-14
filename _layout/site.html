@@ -27,20 +27,18 @@
 						<div class="c-emergency_info_content">
 							<p class="c-emergency_title -main">{{"Immediate emergency"|t}}</p>
 							<ul class="o-list-bare c-emergency_ul">
-{% for block in option.resourcesList %}
-
-    {% if block.type == "resourcesListTab" %}
-
-        <li>
-        	<span class="c-emergency_title">{{ block.resourcesListName }}</span>
-        	<span>{{block.resourcesListPhone}}</span>
-        	{% if block.resourcesListWeb %}<span><a href="block.resourcesListWeb.getUrl()" target="_blank">{{block.resourcesListWeb.getUrl()}}</a></span>{% endif %}
-        </li>
-
-    {% endif %}
-
-{% endfor %}
-</ul>
+								{% for block in option.resourcesList %}
+    								{% if block.type == "resourcesListTab" %}
+        								<li>
+        									<span class="c-emergency_title">{{ block.resourcesListName }}</span>
+        									<span>{{block.resourcesListPhone}}</span>
+        									{% if block.resourcesListWeb %}
+        										<span><a href="{{block.resourcesListWeb.getUrl()}}" target="_blank">{{block.resourcesListWeb.getUrl()}}</a></span>
+        									{% endif %}
+        								</li>
+    								{% endif %}
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
 				</div>
