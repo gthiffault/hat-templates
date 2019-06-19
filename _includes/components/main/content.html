@@ -1,11 +1,13 @@
 <section class="o-section c-content {% if button == true %}-w-button{%endif%}">
 	<div class="o-wrapper -one">
-		<div class="c-content_wrapper">
+		<div id="contact" class="c-content_wrapper">
 			<div class="c-content-icon -{{posttype}}"></div>
 			<div class="c-content_text">
 				{{entry.contentText}}
 			</div>
-			{% if button == true %}<a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a>{% endif %}
+			{% if button == true %}
+				<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a></div>
+			{% endif %}
 		</div>
 	</div>
 </section>

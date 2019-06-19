@@ -2,6 +2,6 @@
 	<div class="o-wrapper">
 		{% if title|length %}<h2>{{title|t}}</h2>{% endif %}
 			{% include "_includes/components/main/list-ul.html" %}
-		{% if posttype == "home" %}<a class="c-btn c-btn--main" href="">{{"See all testimonials"|t}}</a>{% endif %}		
+		{% if posttype == "home" %}<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="">{{"See all testimonials"|t}}</a></div>{% endif %}		
 	</div>
 </section>

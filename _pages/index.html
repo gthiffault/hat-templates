@@ -8,21 +8,25 @@
 					<div class="c-content">
 						<h2>{{entry.txtNImgTitle}}</h2>
 						{{entry.txtNImgContent}}
-						<a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a>
+						<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a></div>
 					</div>
                 </div>
             </div>
-            <div class="o-ratio o-ratio--home-image c-image" style="background: url('{{entry.txtNImgImage.one().url()}}')"></div>                
+            <div class="c-image">
+            	<div class="o-ratio o-ratio--home-image -first" style="background: url('{{entry.txtNImgImage.one().url()}}')"></div>
+            </div>                
 		</section>
 		<section class="o-section c-image-txt -version-zero">
-            <div class="o-ratio o-ratio--home-image c-image" style="background: url('{{entry.imgNTxtImage.one().url()}}')">
+			            <div class="c-image">
+			<div class="o-ratio o-ratio--home-image -second" style="background: url('{{entry.imgNTxtImage.one().url()}}')"></div>
+			            </div>      
             </div>  			
             <div class="c-content_wrap">
 				<div class="o-wrapper -two -b">
 					<div class="c-content">
 						<h2>{{entry.imgNTxtTitle}}</h2>
 						{{entry.imgNTxtContent}}
-						<a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a>
+						<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a></div>
 					</div>
                 </div>
             </div>             
