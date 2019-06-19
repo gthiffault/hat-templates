@@ -12,9 +12,9 @@
         		{% if posttype == "home" or posttype == "testimonials" %}<a href="{{item.url()}}">{% endif %}
 					<picture>
 						{% if imgJpeg|length %}
-							<source srcset="{{imgJpeg.one.url('list')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
+							<source data-srcset="{{imgJpeg.one.url('list')}}" srcset="{{imgJpeg.one.url('list')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
 						{% endif %}		
-						<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
+						<img class="c-testimonials_img lazyload" src="{{imgJpeg.one.url()}}" data-srcset="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 					</picture>  
 					<figcaption> 
 						<div class="c-list_content">
