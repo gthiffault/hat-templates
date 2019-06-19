@@ -12,11 +12,11 @@
 			</div>	
 		{% elseif entry.type == "testimonialsList" %}	
 			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}})">
-				<h2>{{"Testimonials"|t}}</h2>
+				<h2><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
 			</div>			
 		{% else %}
 			<div id="page" class="c-header_background-hero" style="background: url({{entry.pageImage.one.url()}})">
-				<h2><span class="c-title_top"></span>{{entry.title}}<span class="c-title_bottom"></span></h2>
+				<h2><span class="c-title_top"></span><span class="c-title_text">{{entry.title}}</span><span class="c-title_bottom"></span></h2>
 			</div>		
 		{% endif %}
 	</div>
