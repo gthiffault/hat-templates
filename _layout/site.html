@@ -8,15 +8,13 @@
 	<!doctype html>
 	<html lang="{{craft.app.language}}">
 		<head>
-			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
-			<link href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
 
 		</head>	
 		<body id="barba-wrapper">
 			<style>
 				.c-page_transition {
 					position: fixed;
-					width: 100%;
+					width: 100vw;
 					height: 100%;
 					z-index: 534;
 					background-color: #2A2A2A;
@@ -27,14 +25,14 @@
     				top: 50%;
     				left: 50%;
     				transform: translate(-50%,-50%);
-    				    z-index: 2345;	
+    				    z-index: 2345678345678;	
     				    width: 160px;
     				    height: 160px;
 				}
 				
 			</style>
 			<div class="c-page_transition"></div>
-<?xml version="1.0" encoding="UTF-8"?>
+
 <svg id="load" class="c-image_transition"  viewBox="0 0 81 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
     <title>Artboard</title>
@@ -96,6 +94,9 @@
 			</main>
 			{# FOOTER #} {% include '_includes/components/footer/footer.html' %}
 			<script defer src="{{ baseUrl }}/assets/script/app.js"></script>	
+						<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
+			<link href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
+
 		</div>
 		</body>
 	</html>					
