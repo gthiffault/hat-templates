@@ -1,7 +1,7 @@
 {% set items = craft.entries.section(currentpost).level(1).limit(limit) %}
 
 <ul class="o-layout o-layout--medium c-list_ul">
-    {% for item in items %}
+    {% for item in items.all() %}
     	{% if posttype == "home" or posttype == "testimonials" %}
 			{% set imgJpeg 	= item.testimonialsImageFallback %}
     	{% elseif posttype == "team" %}

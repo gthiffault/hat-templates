@@ -17,7 +17,7 @@
 					width: 100vw;
 					height: 100%;
 					z-index: 534;
-					background-color: #2A2A2A;
+					background-color: #525A67;
 					top: 0;
 				}
 				.c-image_transition {
@@ -72,7 +72,7 @@
 							<div class="c-emergency_info_content">
 								<p class="c-emergency_title -main">{{"Immediate emergency"|t}}</p>
 								<ul class="o-list-bare c-emergency_ul">
-									{% for block in option.resourcesList %}
+									{% for block in option.resourcesList.all() %}
 	    								{% if block.type == "resourcesListTab" %}
 	        								<li>
 	        									<span class="c-emergency_title">{{ block.resourcesListName }}</span>
@@ -95,7 +95,7 @@
 			{# FOOTER #} {% include '_includes/components/footer/footer.html' %}
 			<script defer src="{{ baseUrl }}/assets/script/app.js"></script>	
 						<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
-			<link href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
+			<link defer href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
 
 		</div>
 		</body>
