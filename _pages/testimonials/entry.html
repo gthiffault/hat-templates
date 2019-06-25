@@ -28,6 +28,18 @@
 							{% endif %}		
 							<img class="c-testimonials_img" src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 						</picture>
+
+{# Set parameters for prev/next elements list #}
+{% set params = craft.entries.section('testimonialsList').order('title asc').limit(10) %}
+
+{# Get the prev/next elements #}
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+
+{# And make sure to only output the links if the element exists #}
+{% if prevEntry %}<a href="{{ prevEntry.url }}">Previous</a>{% endif %}
+{% if nextEntry %}<a href="{{ nextEntry.url }}">Next</a>{% endif %}
+
 					</div>
 					<div class="o-layout__item">
 						<p class="c-testimonials_date">{{date}}</p>
