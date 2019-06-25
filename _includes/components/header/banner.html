@@ -1,15 +1,22 @@
 <div class="c-header_banner">
 	<div id="page" class="c-banner {% if entry.type == 'home'%}-home{% else %}-page{% endif%}">
 		{% if entry.type == "home" %}
-			<div class="c-header_background-hero" style="background: url({{entry.homeImage.one.url()}})">
-				<div class="o-wrapper">
+
+<div class="c-header_background-video">
+<div class="o-wrapper">
 					<div class="c-banner_content">
 						<p class="c-page-title">{{entry.homeTitleZero}}</p>
 						<p class="c-page-title">{{entry.homeTitleOne}}</p>
 						<p class="c-page-subtitle">Un humain à la fois</p>
 					</div>
-				</div>	
-			</div>	
+				</div>		
+			<iframe src="https://player.vimeo.com/video/344429607?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+			frameborder="0" allow=autoplay></iframe>
+
+			
+		</div>
+
+
 		{% elseif entry.type == "testimonialsList" %}	
 			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}})">
 				<h2><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
