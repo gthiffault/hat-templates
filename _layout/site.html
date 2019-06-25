@@ -19,6 +19,7 @@
 					z-index: 534;
 					background-color: #525A67;
 					top: 0;
+                    left: 0;
 				}
 				.c-image_transition {
     				position: fixed;
@@ -59,44 +60,43 @@
 
 		<div  class="barba-container lang-{{craft.app.language}} pageslug-{{entry.type}}"" data-namespace="page">	
 			<div id="fb-root"></div>
-				<header class="c-header">
-					{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
-					{# NAVIGATION #} {% include '_includes/components/header/banner.html' %}
-					<div class="c-sidebar">
-						<ul class="o-list-bare c-sidebar_ul">
-							<li class="c-sidebar_item -instagram"><a href="{{option.linkInstagram.getUrl()}}" target="_blank">Instagram</a></li> 						
-							<li class="c-sidebar_item -facebook"><a href="{{option.linkFacebook.getUrl()}}" target="_blank">Facebook</a></li>
-							<li class="c-sidebar_item -emergency"><a>{{"emergency"|t}}</a></li>
-						</ul>
-						<div class="c-emergency_info">
-							<div class="c-emergency_info_content">
-								<p class="c-emergency_title -main">{{"Immediate emergency"|t}}</p>
-								<ul class="o-list-bare c-emergency_ul">
-									{% for block in option.resourcesList.all() %}
-	    								{% if block.type == "resourcesListTab" %}
-	        								<li>
-	        									<span class="c-emergency_title">{{ block.resourcesListName }}</span>
-	        									<span>{{block.resourcesListPhone}}</span>
-	        									{% if block.resourcesListWeb %}
-	        										<span><a href="{{block.resourcesListWeb.getUrl()}}" target="_blank">{{block.resourcesListWeb.getUrl()}}</a></span>
-	        									{% endif %}
-	        								</li>
-	    								{% endif %}
-									{% endfor %}
-								</ul>
-							</div>
-						</div>
-					</div>
-				</header>
-			<main class="c-main">
-				{% block content %}
-				{% endblock %}	
-			</main>
-			{# FOOTER #} {% include '_includes/components/footer/footer.html' %}
-			<script defer src="{{ baseUrl }}/assets/script/app.js"></script>	
-						<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
-			<link defer href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
-
-		</div>
-		</body>
-	</html>					
+			<header class="c-header">
+				{# NAVIGATION #} {% include '_includes/components/header/navigation.html' %}
+				{# NAVIGATION #} {% include '_includes/components/header/banner.html' %}
+			</header>
+                <aside class="c-sidebar">
+                    <ul class="o-list-bare c-sidebar_ul">
+                        <li class="c-sidebar_item -instagram"><a href="{{option.linkInstagram.getUrl()}}" target="_blank">Instagram</a></li>                        
+                        <li class="c-sidebar_item -facebook"><a href="{{option.linkFacebook.getUrl()}}" target="_blank">Facebook</a></li>
+                        <li class="c-sidebar_item -emergency"><a>{{"emergency"|t}}</a></li>
+                    </ul>
+                    <div class="c-emergency_info">
+                        <div class="c-emergency_info_content">
+                            <p class="c-emergency_title -main">{{"Immediate emergency"|t}}</p>
+                            <ul class="o-list-bare c-emergency_ul">
+                                {% for block in option.resourcesList.all() %}
+                                    {% if block.type == "resourcesListTab" %}
+                                        <li>
+                                            <span class="c-emergency_title">{{ block.resourcesListName }}</span>
+                                            <span>{{block.resourcesListPhone}}</span>
+                                            {% if block.resourcesListWeb %}
+                                                <span><a href="{{block.resourcesListWeb.getUrl()}}" target="_blank">{{block.resourcesListWeb.getUrl()}}</a></span>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </aside>                
+    			<main class="c-main">
+    				{% block content %}
+    				{% endblock %}	
+    			</main>
+    			{# FOOTER #} {% include '_includes/components/footer/footer.html' %}
+    			<script defer src="{{ baseUrl }}/assets/script/app.js"></script>	
+    						<link rel="stylesheet" href="{{ baseUrl }}/assets/css/app.css">
+    			<link defer href="https://fonts.googleapis.com/css?family=Sacramento|Montserrat:400,600,700" rel="stylesheet">
+    	</div>
+	</body>
+</html>					
