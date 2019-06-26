@@ -30,7 +30,7 @@
 						</picture>
 
 {# Set parameters for prev/next elements list #}
-{% set params = craft.entries.section('testimonialsList').order('title asc').limit(10) %}
+{% set params = craft.entries.section('testimonialsList').order('postDate desc').limit(10) %}
 
 {# Get the prev/next elements #}
 {% set prevEntry = entry.getPrev(params) %}
@@ -58,8 +58,8 @@
         <h4>{{ block.ResourcesName }}</h4>
         {{block.ResourcesDescription}}
         <ul class="c-resources-sm">	
-        	<li class="c-resources-sm_web"><a href="{{block.ResourcesWebsite}}">Site</a></li> 
-        	<li class="c-resources-sm_fb"><a href="{{block.ResourcesFacebook}}">Fb</a></li> 
+        	<li class="c-resources-sm_web"><a href="{{block.ResourcesWebsite}}" target="_blank">Site</a></li> 
+        	<li class="c-resources-sm_fb"><a href="{{block.ResourcesFacebook}}" target="_blank">Fb</a></li> 
         </ul>
 
 </li>

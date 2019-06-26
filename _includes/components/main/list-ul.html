@@ -1,4 +1,4 @@
-{% set items = craft.entries.section(currentpost).level(1).limit(limit) %}
+{% set items = craft.entries.section(currentpost).level(1).limit(limit).order('postDate desc') %}
 
 <ul class="o-layout o-layout--medium c-list_ul">
     {% for item in items.all() %}
