@@ -30,15 +30,16 @@
 						</picture>
 
 {# Set parameters for prev/next elements list #}
-{% set params = craft.entries.section('testimonialsList').order('postDate desc').limit(10) %}
+{% set params = craft.entries.section('testimonialsList').order('postDate desc').limit(99999999) %}
 
 {# Get the prev/next elements #}
 {% set prevEntry = entry.getPrev(params) %}
 {% set nextEntry = entry.getNext(params) %}
 
 {# And make sure to only output the links if the element exists #}
-{% if prevEntry %}<a href="{{ prevEntry.url }}">Previous</a>{% endif %}
-{% if nextEntry %}<a href="{{ nextEntry.url }}">Next</a>{% endif %}
+{% if nextEntry %}<a href="{{ nextEntry.url }}">Previous</a>{% endif %}
+{% if prevEntry %}<a href="{{ prevEntry.url }}">Next</a>{% endif %}
+
 
 					</div>
 					<div class="o-layout__item">

@@ -1,4 +1,4 @@
-{% set items = craft.entries.section(currentpost).level(1).limit(limit).order('postDate desc') %}
+	{% set items = craft.entries.section(currentpost).level(1).limit(limit).order('postDate desc') %}
 
 <ul class="o-layout o-layout--medium c-list_ul">
     {% for item in items.all() %}
@@ -12,7 +12,7 @@
         		{% if posttype == "home" or posttype == "testimonials" %}<a href="{{item.url()}}">{% endif %}
 					<picture>
 						{% if imgJpeg|length %}
-							<source data-srcset="{{imgJpeg.one.url('list')}}" srcset="{{imgJpeg.one.url('list')}}" alt="{{imgJpeg.title}}" type="image/jpeg">
+							<source data-srcset="{{imgJpeg.one.url('list'| raw)}}" srcset="{{imgJpeg.one.url('list'| raw)}}" alt="{{imgJpeg.title}}" type="image/jpeg">
 						{% endif %}		
 						<img class="c-testimonials_img lazyload" src="{{imgJpeg.one.url()}}" data-srcset="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
 					</picture>  
