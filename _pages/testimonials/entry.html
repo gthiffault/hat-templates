@@ -46,6 +46,11 @@
 						<p class="c-testimonials_date">{{date}}</p>
 						<h1>{{entry.title}}</h1>
 						<div class="c-testimonials_content">
+							{% if entry.testimonialsPreamble %}
+							<div class="c-preamble">
+								{{entry.testimonialsPreamble}}
+							</div>
+							{% endif %}
 							<div class="c-content">
 								{{content}}
 							</div>
