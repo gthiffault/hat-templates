@@ -64,8 +64,8 @@
         <h4>{{ block.ResourcesName }}</h4>
         {{block.ResourcesDescription}}
         <ul class="c-resources-sm">	
-        	<li class="c-resources-sm_web"><a href="{{block.ResourcesWebsite}}" target="_blank">Site</a></li> 
-        	<li class="c-resources-sm_fb"><a href="{{block.ResourcesFacebook}}" target="_blank">Fb</a></li> 
+        	{% if block.ResourcesWebsite|length%}<li class="c-resources-sm_web"><a href="{{block.ResourcesWebsite}}" target="_blank">Site</a></li>{% endif %}  
+        	{% if block.ResourcesFacebook|length%}<li class="c-resources-sm_fb"><a href="{{block.ResourcesFacebook}}" target="_blank">Fb</a></li>{% endif %} 
         </ul>
 
 </li>
