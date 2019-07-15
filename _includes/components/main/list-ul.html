@@ -1,7 +1,18 @@
-	{% set items = craft.entries.section(currentpost).level(1).limit(limit).order('postDate desc') %}
+{% set items = craft.entries.section(currentpost).level(1).limit(limit).order('postDate desc') %}
+
+
+
+{% paginate items as pageInfo, pageEntries %}
+
+
+{% if posttype == "testimonials" %}
+	{% set loop = pageEntries%}
+	{% else %}
+	{% set loop = items %}
+{% endif %}
 
 <ul class="o-layout o-layout--medium c-list_ul">
-    {% for item in items.all() %}
+    {% for item in loop %}
     	{% if posttype == "home" or posttype == "testimonials" %}
 			{% set imgJpeg 	= item.testimonialsImageFallback %}
     	{% elseif posttype == "team" %}
@@ -20,7 +31,7 @@
 						<div class="c-list_content">
 							<p class="c-list_title">{{item.title}}</p> 	
 							{% if posttype == "home" or posttype == "testimonials" %}        	
-								<p class="c-list_desc">{{item.metaDescription}}</p>		
+								{% if item.metaDescription|length %}<p class="c-list_desc">{{item.metaDescription}}</p>{% else%}<p class="c-list_desc">{{item.testimonialsContent|slice(3,153)}}...</p>{% endif %}		
 							{% elseif posttype == "team" %}
 								<p class="c-list_desc">{{item.teamRole}}</p>		
 							{% endif %}
@@ -31,3 +42,19 @@
         </li>
 	{% endfor %}
 </ul>	
+
+
+{% if posttype == "testimonials" %}
+<div class="c-pagination">
+	<ul class="o-list-bare c-pagination_ul">
+{% for page, url in pageInfo.getPrevUrls(5) %}
+    <li><a href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+
+<li><span class="current">{{ pageInfo.currentPage }}</span></li>
+
+{% for page, url in pageInfo.getNextUrls(5) %}
+    <li><a href="{{ url }}">{{ page }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
