@@ -14,6 +14,21 @@
     		</div>
     		</div>
     	</section>
+<section class="o-section c-side-by-side -mobile">
+            <div class="o-wrapper -three">
+            <div class="o-layout o-layout--xlarge">
+                <div class="o-layout__item c-mg-btm">
+                    <div class="">{{entry.aboutTxtNImgContent}}</div>
+                </div>
+{#                 <div class="o-layout__item c-mg-btm">
+                    <img src="{{entry.aboutImgNTxtImage.one.url('aboutZero')}}" alt="">
+                </div> #}                
+                <div class="o-layout__item">
+                    <div class="">{{entry.aboutImgNTxtContent}}</div>
+                </div>  
+            </div>
+            </div>
+        </section>        
         {% include "_includes/components/main/testimonials.html" with { currentpost:'teamMember',limit:6,posttype:'team',title:'Our team'} %}
         {% include "_includes/components/main/accordion.html" with {posttype: 'about'} %}
 	{% endblock %}
