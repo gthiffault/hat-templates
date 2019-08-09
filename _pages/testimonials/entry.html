@@ -40,7 +40,7 @@
 	<ul class="c-pagination_ul">
 {# And make sure to only output the links if the element exists #}
 {% if nextEntry %}<li><a class="c-pagination_previous no-barba" href="{{ nextEntry.url }}">Précédent</a></li>{% endif %}
-{% if prevEntry %}<li class="-next"><a class="c-pagination_next"href="{{ prevEntry.url }}">Suivant</a></li>{% endif %}
+{% if prevEntry %}<li class="-next"><a class="c-pagination_next no-barba"href="{{ prevEntry.url }}">Suivant</a></li>{% endif %}
 </ul>
 	</div>
 
@@ -68,6 +68,14 @@
 							<div class="c-content">
 								{{content}}
 							</div>
+
+<div class="c-pagination -single">
+	<ul class="c-pagination_ul">
+{# And make sure to only output the links if the element exists #}
+{% if nextEntry %}<li><a class="c-pagination_previous no-barba" href="{{ nextEntry.url }}">Précédent</a></li>{% endif %}
+{% if prevEntry %}<li class="-next"><a class="c-pagination_next no-barba"href="{{ prevEntry.url }}">Suivant</a></li>{% endif %}
+</ul>
+	</div>							
 
 							{% if entry.Resources %}
 							<ul class="c-testimonials_resources">
