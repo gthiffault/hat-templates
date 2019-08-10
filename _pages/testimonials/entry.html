@@ -36,7 +36,7 @@
 {% set prevEntry = entry.getPrev(params) %}
 {% set nextEntry = entry.getNext(params) %}
 
-<div class="c-pagination -single">
+<div class="c-pagination -single -desktop">
 	<ul class="c-pagination_ul">
 {# And make sure to only output the links if the element exists #}
 {% if nextEntry %}<li><a class="c-pagination_previous" href="{{ nextEntry.url }}">Précédent</a></li>{% endif %}
@@ -49,13 +49,7 @@
 						<p class="c-testimonials_date">{{date}}</p>
 						<h1>{{entry.title}}</h1>
 						<div class="c-testimonials_content">
-							{% if entry.testimonialsPreamble %}
-							<div class="c-preamble">
-								{{entry.testimonialsPreamble}}
-							</div>
-							{% endif %}
-
-						<picture class="c-picture_mobile">
+<picture class="c-picture_mobile">
 							{% if imgWebp|length %}
 								<source srcset="{{imgWebp.one.url()}}" type="image/webp">
 							{% endif %}
@@ -63,7 +57,14 @@
 								<source srcset="{{imgJpeg.one.url()}}" alt="{{imgJpeg.title}}" type="image/jpeg">
 							{% endif %}		
 							<img class="c-testimonials_img lazy" data-src="{{imgJpeg.one.url()}}" alt="{{imgJpeg.one().title}}">
-						</picture>
+						</picture>							
+							{% if entry.testimonialsPreamble %}
+							<div class="c-preamble">
+								{{entry.testimonialsPreamble}}
+							</div>
+							{% endif %}
+
+						
 
 							<div class="c-content">
 								{{content}}
@@ -92,7 +93,7 @@
 {% endif %}
 
 
-<div class="c-pagination -single">
+<div class="c-pagination -single -mobile">
 	<ul class="c-pagination_ul">
 {# And make sure to only output the links if the element exists #}
 {% if nextEntry %}<li><a class="c-pagination_previous" href="{{ nextEntry.url }}">Précédent</a></li>{% endif %}
