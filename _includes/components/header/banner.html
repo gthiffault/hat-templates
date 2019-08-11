@@ -11,13 +11,10 @@
 					</div>
 				</div>	
 				{% cache %}	
-			<iframe src="https://player.vimeo.com/video/{{entry.videoID}}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+			<iframe id="test" data-src="https://player.vimeo.com/video/{{entry.videoID}}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
 			frameborder="0" allow=autoplay></iframe>
 {% endcache %}	
-			
 		</div>
-
-
 		{% elseif entry.type == "testimonialsList" %}	
 			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}})">
 				<h2><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
@@ -29,4 +26,3 @@
 		{% endif %}
 	</div>
 </div>
-
