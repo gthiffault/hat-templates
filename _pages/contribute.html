@@ -2,6 +2,13 @@
     {% block content %}
 		{% include "_includes/components/main/content.html" with {button: false,posttype:'contribute'} %}
 
+<section>
+ <div class="o-wrapper">
+	<h2>{{entry.contributeTitle}}</h2>
+	{{entry.contributeContent}}
+	</div>
+</section>
+
 <section class="c-form_donation">
 	<div class="o-wrapper -one">
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -10,7 +17,7 @@
                 <input type="hidden" name="redirect" value="faire-don">
                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
                 <input type="hidden" name="subject" value="Faire Don Form">    
-			    <h2>{{'Donation amount'|t}}</h2>
+			    <h3>{{'Donation amount'|t}}</h3>
 			    <br>
 			    <input type="radio" name="amount" value="10"> <label class="form-amounts" for="">10.00 $</label><br>
 				<input type="radio" name="amount" value="25"> <label class="form-amounts" for="">25.00 $</label><br>
