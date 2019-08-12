@@ -11,7 +11,7 @@
 
 <section class="c-form_donation">
 	<div class="o-wrapper -one">
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+			<form class="c-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                 {{ getCsrfInput() }}
                 <input type="hidden" name="action" value="contactForm/sendMessage">
                 <input type="hidden" name="redirect" value="faire-don">
