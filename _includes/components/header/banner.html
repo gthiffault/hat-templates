@@ -22,7 +22,7 @@
 
 
 			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}});">
-				<h2><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
+				<h2 class="c-title-page_h1"><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
 			</div>			
 		{% else %}
 
@@ -48,9 +48,9 @@
 	{% set position = "right bottom" %}	
 {% endif %}
 
-		
+
 			<div id="page" class="c-header_background-hero" style="background: url({{entry.pageImage.one.url()}}); background-position: {{ position }} !important;" >
-				<h2><span class="c-title_top"></span><span class="c-title_text">{{entry.title}}</span><span class="c-title_bottom"></span></h2>
+				<h1><span class="c-title_top"></span><span class="c-title_text">{{entry.title}}</span><span class="c-title_bottom"></span></h1>
 			</div>		
 		{% endif %}
 	</div>
