@@ -3,14 +3,14 @@
 		{% include "_includes/components/main/content.html" with {button: false,posttype:'contribute'} %}
 
 <section class="c-content-contribute">
- <div class="o-wrapper -one">
+ <div class="o-wrapper -four">
 	<h2>{{entry.contributeTitle}}</h2>
 	{{entry.contributeContent}}
 	</div>
 </section>
 
 <section class="c-form_donation">
-	<div class="o-wrapper -one">
+	<div class="o-wrapper -four">
 			<form class="c-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                 {{ getCsrfInput() }}
                 <input type="hidden" name="action" value="contactForm/sendMessage">
@@ -18,7 +18,6 @@
                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
                 <input type="hidden" name="subject" value="Faire Don Form">    
 			    <h3>{{'Donation amount'|t}}</h3>
-			    <p>Pour faire un don en ligne, veuillez remplir ce formulaire. Vous recevrez un reçu par courriel.</p>
 			    <input type="radio" name="amount" value="10"> <label class="form-amounts" for="">10.00 $</label><br>
 				<input type="radio" name="amount" value="25"> <label class="form-amounts" for="">25.00 $</label><br>
 				<input type="radio" name="amount" value="50"> <label class="form-amounts" for="">50.00 $</label><br>
