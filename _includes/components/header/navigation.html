@@ -41,7 +41,31 @@
 					        {% endcache %}
 					    </ul>
 					</nav>
-					<button class="c-emergency_mobile">Urgence immédiate</button>
+					<ul class="o-list-bare">
+					<li class="c-emergency_mobile_li"><button class="c-emergency_mobile">Urgence immédiate</button>
+						<ul class="o-list-bare c-emergency_mobile_ul">
+							<li class="c-emergency_info_mobile_div">
+                        <div class="c-emergency_info_content">
+                            <p class="c-emergency_title -main">{{"Immediate emergency"|t}}</p>
+                            <ul class="o-list-bare c-emergency_ul">
+                                {% for block in option.resourcesList.all() %}
+                                    {% if block.type == "resourcesListTab" %}
+                                        <li>
+                                            <span class="c-emergency_title">{{ block.resourcesListName }}</span>
+                                            <span>{{block.resourcesListPhone}}</span>
+                                            {% if block.resourcesListWeb %}
+                                                <span><a href="{{block.resourcesListWeb.getUrl()}}" target="_blank">{{block.resourcesListWeb.getUrl()}}</a></span>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                  								
+							</li>
+						</ul>
+					</li>
+					</ul>
 					<button class="hamburger hamburger--collapse" type="button">
   						<span class="hamburger-box">
     						<span class="hamburger-inner"></span>
@@ -49,7 +73,8 @@
 					</button>					
 				</div>
 			</div>
-		</div>	
+		</div>
+
 	</div>
 	<div class="c-header_navigation_mobile">
 <ul class="o-list-bare">
