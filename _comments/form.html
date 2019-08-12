@@ -24,12 +24,17 @@
             {{ csrfInput() }}
             {{ craft.comments.protect() }}
 
-            <textarea class="cc-f-textarea" name="fields[comment]" placeholder="{{ 'Add a comment...' | t('comments') }}"></textarea>
-            <div class="cc-e"></div>
+            <label for="">Commentaire*</label>
+            <p class="lead emoji-picker-container">
+            <textarea class="cc-f-textarea" name="fields[comment]"rows="6" type="email" data-emojiable="true"></textarea></p>
+{#             <div class="cc-e"></div> #}
 
-            <div data-role="notice" class="cc-n"></div>
 
-            <button class="cc-f-btn" type="submit">{{ 'Post comment' | t('comments') }}</button>
+{# 
+            <div data-role="notice" class="cc-n"></div> #}
+            <div class="c-form_btn">
+                <button class="c-btn c-btn--primary" type="submit">{{ 'Soumettre' | t('comments') }}</button>
+            </div>
         </form>
     </div>
 </article>
