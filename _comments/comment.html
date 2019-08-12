@@ -1,5 +1,5 @@
 <li class="c-comments_li">
-{#     {% if comment.can('showAvatar') %}
+    {% if comment.can('showAvatar') %}
         <figure class="cc-i-figure" itemprop="creator" itemscope itemtype="http://schema.org/Person">
             <p class="cc-i-image" itemprop="image">
                 {% if comment.author and comment.author.getPhoto() %}
@@ -11,12 +11,12 @@
                 {% endif %}
             </p>
         </figure>
-    {% endif %} #}
+    {% endif %}
 
-{#     <div class="c-comments_wrap">
+    <div class="c-comments_wrap">
         <div class="c-comments_content">
             <header class="c-comments_header" role="meta">
-{#                 <div itemprop="creator" itemscope itemtype="http://schema.org/Person">
+                <div itemprop="creator" itemscope itemtype="http://schema.org/Person">
                     <strong class="c-comments_author" itemprop="name">
                         {{- comment.author.fullName ?? comment.author -}}
                     </strong>
@@ -34,8 +34,8 @@
                         <a href="{{ comment.flagUrl }}" class="c-comments_flag" data-action="flag">{{ 'Flag' | t('comments') }}</a>
                     {% endif %}
                 </small>
-            </header> #}
-{# 
+            </header>
+
             <div class="c-comments_body">
                 <div class="c-comments_comment" data-role="message" dir="auto" itemprop="commentText">
                     {% if comment.isFlagged() %}
@@ -46,29 +46,29 @@
                         <p>{{ comment.comment | nl2br }}</p>
                     {% endif %}
                 </div>
-            </div> #}
+            </div>
 <small>{{ comment.commentDate|date('j.m.Y')}}</small>
             <p>{{ comment.comment | nl2br }}</p>
 
-            {# <div class="c-comments_footer"> #}
-{#                 {% if comment.can('vote') %}
+            <div class="c-comments_footer">
+                {% if comment.can('vote') %}
                     <span class="cc-v" data-role="voting">
                         <span class="cc-v-count" data-role="likes">{{ comment.votes ?: '' }}</span>
                         <a href="{{ comment.upvoteUrl }}" class="cc-v-up" data-action="upvote"></a>
                         <a href="{{ comment.downvoteUrl }}" class="cc-v-down" role="button" data-action="downvote"></a>
                     </span>
-                {% endif %} #}
+                {% endif %}
 
-{#                 <div class="cc-ll"> #}
-{#                     {% if comment.can('reply') %}
+                <div class="cc-ll">
+                    {% if comment.can('reply') %}
                         <span class="cc-ll-i">
                             <a href="#" class="c-comments_reply" data-action="reply" itemprop="replyToUrl">
                                 {{ 'Reply'|t }}
                             </a>
                         </span>
-                    {% endif %} #}
+                    {% endif %}
 
-                    {# {% if comment.can('edit') %}
+                    {% if comment.can('edit') %}
                         <span class="cc-ll-i">
                             <a href="#" class="c-comments_edit" data-action="edit">
                                 {{ 'Edit' | t('comments') }}
@@ -82,22 +82,22 @@
                                 {{ 'Delete' | t('comments') }}
                             </a>
                         </span>
-                    {% endif %} #}
-   {#              </div>
+                    {% endif %}
+                </div>
             </div>
-        </div> #}
+        </div>
 
-{#         <div data-role="reply"></div>
+        <div data-role="reply"></div>
 
         <div data-role="errors" class="cc-e"></div>
-        <div data-role="notice" class="cc-n"></div> #}
+        <div data-role="notice" class="cc-n"></div>
 
-{#         <div data-role="replies">
+        <div data-role="replies">
             {% if comment.children | length %}
                 {% for nestedComment in comment.children.all() %}
                     {% include 'comment' with { comment: nestedComment } %}
                 {% endfor %}
             {% endif %}
         </div>
-    </div> #}
+    </div>
 </li>

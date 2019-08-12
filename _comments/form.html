@@ -1,31 +1,17 @@
- <form class="c-form cc-f-wrap" role="form" method="post" accept-charset="UTF-8">
-            <input type="hidden" name="action" value="comments/comments/save">
-            <input type="hidden" name="elementId" value="{{ element.id }}">
-            <input type="hidden" name="siteId" value="{{ element.siteId }}">
-            <input type="hidden" name="newParentId" value="">
-            <input type="hidden" name="commentId" value="">
-            {{ csrfInput() }}
-            {{ craft.comments.protect() }}
+<form method="post" role="form" method="post" accept-charset="UTF-8">
+    <input type="hidden" name="action" value="comments/comments/save">
+    <input type="hidden" name="elementId" value="{{ element.id }}">
+    <input type="hidden" name="siteId" value="{{ element.siteId }}">
+    {{ craft.comments.protect() }}
+    {{ csrfInput() }}
 
-            {% if not currentUser %}
-{#                 <div class="cc-f-row">
-                    <div class="cc-f-col"> #}
-                        <label for="">Noms*</label>
-                        <input class="cc-f-input" name="fields[name]" type="text" required>
-   {#                      <div class="cc-e"></div> #}
-{#                     </div> #}
-                    {# <div class="cc-f-col">
-                        <input class="cc-f-input" name="fields[email]" type="email" placeholder="{{ 'Your email' | t('comments') }}">
-                        <div class="cc-e"></div>
-                    </div> #}
-                {# </div> #}
-            {% endif %}
-            <label for="">Commentaire*</label>
-            <p class="lead emoji-picker-container">
-            <textarea class="cc-f-textarea" name="fields[comment]"rows="6" type="email" data-emojiable="true"></textarea></p>
-{#             <div class="cc-e"></div> #}
+    {% if not currentUser %}
+        <input name="fields[name]" type="text" />
 
-            <div data-role="notice" class="cc-n"></div>
+        <input name="fields[email]" type="text" />
+    {% endif %}
 
-            <button class="cc-f-btn" type="submit">{{ 'Post comment' | t('comments') }}</button>
-        </form>
+    <textarea name="fields[comment]"></textarea>
+
+    <input type="submit" value="Add Comment" />
+</form>
