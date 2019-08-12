@@ -14,10 +14,10 @@
 				    <input id="subject" type="hidden" name="subject" value="Message">
 
 				    <label for="from-name">{{'Full name'|t}}</label>
-				    <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+				    <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}" data-parsley-error-message="{{ 'This field is required' |translate }}">
 
 				    <label for="from-email">{{'Email'|t}}</label>
-				    <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+				    <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" data-parsley-error-message="{{ 'This field is required' |translate }}">
 
 				    <label for="message">Message</label>
 				    <textarea rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
