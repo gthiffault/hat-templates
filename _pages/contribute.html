@@ -1,4 +1,115 @@
 {% extends "_layout/site.html" %}
     {% block content %}
 		{% include "_includes/components/main/content.html" with {button: false,posttype:'contribute'} %}
+						<div class="formulation-plainte-inner -donation">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                {{ getCsrfInput() }}
+                <input type="hidden" name="action" value="contactForm/sendMessage">
+                <input type="hidden" name="redirect" value="faire-don">
+
+                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
+                <input type="hidden" name="subject" value="Faire Don Form">
+    
+    
+			  <span class="title-green-light">{{'Make a donation'|t}}</span>
+			  <div class="c-form_content">{{entry.complaintContent}}</div>
+			  <h4 class="wh">{{'General information'|t}}</h4>
+
+
+				<!-- PAYPAL FORM -->
+				<div class="form-group">
+			    <label for="MONTANT">{{'Donation amount'|t}}</label>
+			    <br>
+			    <input type="radio" name="amount" value="10"> <label class="form-amounts" for="">10.00 $</label><br>
+				<input type="radio" name="amount" value="25"> <label class="form-amounts" for="">25.00 $</label><br>
+				<input type="radio" name="amount" value="50"> <label class="form-amounts" for="">50.00 $</label><br>
+				<input type="radio" name="amount" value="0"><label class="form-amounts" for="">{{'Custom amount'|t}}</label><br>   
+
+			  	</div>
+				<br>
+				<input type="hidden" name="cmd" value="_donations" />
+				<input type="hidden" name="business" value="letournant@letournant.qc.ca" />
+				<input type="hidden" name="currency_code" value="CAD" />
+			<!-- 	<input type="image" src="https://www.paypalobjects.com/fr_CA/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faire un don avec PayPal" /> -->
+				<img alt="" border="0" src="https://www.paypal.com/fr_CA/i/scr/pixel.gif" width="1" height="1" />
+				<!--------------------PAYPAL FORM -->
+
+
+<!-- 			  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="PRENOM">{{'First name'|t}}</label>
+			      <input type="text" class="form-control" name="message[Prénom]" placeholder="{{'First name'|t}}" required>
+			    </div>
+			    <div class="form-group col-md-6">
+			       <label for="NOM">{{'Last name'|t}}</label>
+			      <input type="text" class="form-control" name="message[nom]" placeholder="{{'Last name'|t}}" required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="ADRESSE">{{'Mailing address'|t}}</label>
+			    <input type="text" class="form-control" id="ADRESSE" name="message[adresse]" placeholder="{{'Street address'|t}}" required>
+			  </div>
+			  <div class="form-row">
+			    <div class="form-group col-md-5">
+			      <label for="VILLE">{{'City'|t}}</label>
+			      <input type="text" class="form-control" id="VILLE" name="message[ville]" placeholder="{{'Name of city'|t}}" required>
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="PROVINCE">PROVINCE</label>
+			      <select id="PROVINCE" class="form-control" name="message[province]" required>
+						<option>AB</option>
+						<option>BC</option>
+						<option>MB</option>
+						<option>NB</option>
+						<option>NL</option>
+						<option>NS</option>
+						<option>NT</option>
+						<option>NU</option>
+						<option>ON</option>
+						<option>PE</option>
+						<option  selected="">QC</option>
+						<option>SK</option>
+						<option>YT</option>
+			      </select>
+			    </div>
+			    <div class="form-group col-md-3">
+			      <label for="POSTAL">{{'Postal code'|t}}</label>
+			      <input type="text" class="form-control" name="message[postal]" id="POSTAL" placeholder="{{'Postal code'|t}}" required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="ADRESSE">{{'Email address'|t}}</label>
+			    <input type="text" class="form-control" id="ADRESSE" name="message[adresse_courriel]" placeholder="{{'Email address'|t}}" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="MONTANT">{{'Donation amount'|t}}</label>
+			    <input type="text" class="form-control" id="MONTANT" name="message[montant]" placeholder="0.00 $" required>
+			  </div>
+			  <div class="form-input-bottom">
+			  	<h4 class="wh">{{'Payment Information'|t}}</h4>
+			  	<div class="form-group">
+			    	<label for="CREDIT">{{'Credit card number'|t}}</label>
+			    	<input type="text" class="form-control" id="CREDIT" name="message[credit]" placeholder="{{'Credit card number'|t}}" required>
+			  	</div>
+			  	<div class="form-row">
+				    <div class="form-group col-md-7">
+				      <label for="DATE">{{'Expiration date'|t}}</label>
+				      <div class="experience">
+				      <input type="text" class="form-control" id="DATE1" name="message[date1]" placeholder="{{'Month'|t}}" required>
+				      <input type="text" class="form-control" id="DATE2" name="message[date2]" placeholder="{{'Year'|t}}" required>
+				  	  </div>
+				    </div>
+				    <div class="form-group col-md-5">
+				      <label for="SECURITE">{{'Security code'|t}}</label>
+				      <input type="text" class="form-control" id="SECURITE" name="message[securite]" placeholder="CVC" required>
+
+				    </div>
+			    </div>
+			  </div> -->
+			  <div class="form-footer">
+			  	<input type="reset" value="{{'Reset'|t}}" />
+			  	<button type="submit" class="btn btn-primary">{{"Confirm payment"|t}}</button>
+			  </div>
+			  
+			</form>		
 	{% endblock %}
