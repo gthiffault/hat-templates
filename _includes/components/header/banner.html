@@ -11,12 +11,38 @@
 					</div>
 				</div>	
 				{% cache %}	
-			<iframe id="test" src="https://player.vimeo.com/video/{{entry.videoID}}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+			<iframe id="test" 	src="https://player.vimeo.com/video/{{entry.videoID}}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
 			frameborder="0" allow=autoplay></iframe>
 {% endcache %}	
 		</div>
 		{% elseif entry.type == "testimonialsList" %}	
-			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}})">
+
+{% set position = "" %}
+
+{% if entry.headerPosition.value == 0 %}
+	{% set position = "left top" %}
+{% elseif entry.headerPosition.value == 1 %}
+	{% set position = "center top" %}	
+{% elseif entry.headerPosition.value == 2 %}
+	{% set position = "right top" %}	
+{% elseif entry.headerPosition.value == 3 %}
+	{% set position = "left center" %}	
+{% elseif entry.headerPosition.value == 4 %}
+	{% set position = "center center" %}	
+{% elseif entry.headerPosition.value == 5 %}
+	{% set position = "right center" %}	
+{% elseif entry.headerPosition.value == 6 %}
+	{% set position = "left bottom" %}	
+{% elseif entry.headerPosition.value == 7 %}
+	{% set position = "center bottom" %}	
+{% elseif entry.headerPosition.value == 8 %}
+	{% set position = "right bottom" %}	
+{% endif %}
+
+
+
+
+			<div id="page" class="c-header_background-hero" style="background: url({{option.pageImage.one.url()}}); background-position: {{ position }} !important;">
 				<h2><span class="c-title_top"></span><span class="c-title_text">{{"Testimonials"|t}}</span><span class="c-title_bottom"></span></h2>
 			</div>			
 		{% else %}
