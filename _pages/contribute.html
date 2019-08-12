@@ -7,18 +7,12 @@
 	<h2>{{entry.contributeTitle}}</h2>
 	{{entry.contributeContent}}
 	</div>
-</section>
-
-<section class="c-form_donation">
-	<div class="o-wrapper -four">
-			<form class="c-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+		<form class="c-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                 {{ getCsrfInput() }}
                 <input type="hidden" name="action" value="contactForm/sendMessage">
                 <input type="hidden" name="redirect" value="faire-don">
                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
                 <input type="hidden" name="subject" value="Faire Don Form">    
-			    <h3>{{'Donation amount'|t}}</h3>
-				<input type="radio" name="amount" value="0"><label class="form-amounts" for="">{{'Custom amount'|t}}</label><br>   
 				<input type="hidden" name="cmd" value="_donations" />
 				<input type="hidden" name="business" value="lysa-marie.hontoy@umontreal.ca" />
 				<input type="hidden" name="currency_code" value="CAD" />
@@ -28,6 +22,6 @@
 			  </div>
 			  
 			</form>		
-			</div>
-</section>			
+</section>
+
 	{% endblock %}
