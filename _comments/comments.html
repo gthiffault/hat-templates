@@ -6,13 +6,16 @@
 {# id, element, commentsQuery, settings #}
 {# ------------------------ #}
 
-<div id="{{ id }}" class="cc-w{% if not settings.showAvatar %} no-avatar{% endif %}">
-    <div class="cc-w-i" data-role="comments">
-        {% for comment in commentsQuery.all() %}
-            {% include 'comment' %}
-        {% endfor %}
+<div  id="{{id}}" class="c-testimonials_comments">
+    <div class="c-comments" data-role="comments">
+		<ul class="c-comments_ul o-list-bare">
+        	{% for comment in commentsQuery.all() %}
+            	{% include 'comment' %}
+        	{% endfor %}
+        </ul>
     </div>
-
+</div>    
+<div class="c-testimonials_form -form">
     {% if settings.canComment(element) %}
         {% include 'form' %}
     {% endif %}
