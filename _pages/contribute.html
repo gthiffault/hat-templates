@@ -9,17 +9,13 @@
                 <input type="hidden" name="action" value="contactForm/sendMessage">
                 <input type="hidden" name="redirect" value="faire-don">
                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
-                <input type="hidden" name="subject" value="Faire Don Form">
-    
-			  <span class="title-green-light">{{'Make a donation'|t}}</span>
-				<div class="form-group">
-			    <label for="MONTANT">{{'Donation amount'|t}}</label>
+                <input type="hidden" name="subject" value="Faire Don Form">    
+			    <h2>{{'Donation amount'|t}}</h2>
 			    <br>
 			    <input type="radio" name="amount" value="10"> <label class="form-amounts" for="">10.00 $</label><br>
 				<input type="radio" name="amount" value="25"> <label class="form-amounts" for="">25.00 $</label><br>
 				<input type="radio" name="amount" value="50"> <label class="form-amounts" for="">50.00 $</label><br>
 				<input type="radio" name="amount" value="0"><label class="form-amounts" for="">{{'Custom amount'|t}}</label><br>   
-			  	</div>
 				<input type="hidden" name="cmd" value="_donations" />
 				<input type="hidden" name="business" value="lysa-marie.hontoy@umontreal.ca" />
 				<input type="hidden" name="currency_code" value="CAD" />
