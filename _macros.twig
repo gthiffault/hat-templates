@@ -1,0 +1,3 @@
+{% macro isActive(slug) %}
+    {% if slug in craft.request.segments %} class="c-page-active"{% endif %}
+{% endmacro %}

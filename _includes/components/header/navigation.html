@@ -1,3 +1,5 @@
+{% import "_macros.twig" as macros %}
+
 {# initialisation #}
 	{% set menuSecondaryEntries = "" %}
 	{% set menuMainEntries 		= "" %}
@@ -14,7 +16,7 @@
 				    <ul class="o-list-bare">
 				    	{% cache %}
 					        {% for menuSecondaryEntry in menuSecondaryEntries %}
-					            <li><a href="{{ menuSecondaryEntry.menuLink.getUrl() }}">{{ menuSecondaryEntry.title }}</a></li>
+					            <li {{ macros.isActive(menuSecondaryEntry.slug) }}><a href="{{ menuSecondaryEntry.menuLink.getUrl() }}">{{ menuSecondaryEntry.title }}</a></li>
 					        {% endfor %}
 				        {% endcache %}
 				    </ul>
@@ -36,7 +38,7 @@
 					    <ul class="o-list-bare">
 					    	{% cache %}
 						        {% for menuMainEntry in menuMainEntries %}
-						            <li><a href="{{ menuMainEntry.menuLink.getUrl() }}">{{ menuMainEntry.title }}</a></li>
+						            <li {{ macros.isActive(menuMainEntry.slug) }}><a href="{{ menuMainEntry.menuLink.getUrl() }}">{{ menuMainEntry.title }}</a></li>
 						        {% endfor %}
 					        {% endcache %}
 					    </ul>
