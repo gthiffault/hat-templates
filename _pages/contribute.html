@@ -1,15 +1,15 @@
 {% extends "_layout/site.html" %}
     {% block content %}
 		{% include "_includes/components/main/content.html" with {button: false,posttype:'contribute'} %}
-						<div class="formulation-plainte-inner -donation">
+
+<section class="c-form_donation">
+	<div class="o-wrapper -one">
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                 {{ getCsrfInput() }}
                 <input type="hidden" name="action" value="contactForm/sendMessage">
                 <input type="hidden" name="redirect" value="faire-don">
-
-                 <input type="hidden" name="fromEmail" value="admin@gmail.com">
+                <input type="hidden" name="fromEmail" value="admin@gmail.com">
                 <input type="hidden" name="subject" value="Faire Don Form">
-    
     
 			  <span class="title-green-light">{{'Make a donation'|t}}</span>
 				<div class="form-group">
@@ -29,4 +29,6 @@
 			  </div>
 			  
 			</form>		
+			</div>
+</section>			
 	{% endblock %}
