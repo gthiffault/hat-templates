@@ -6,7 +6,6 @@
  <div class="o-wrapper -four">
 	<h2>{{entry.contributeTitle}}</h2>
 	{{entry.contributeContent}}
-	</div>
 		<form class="c-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                 {{ getCsrfInput() }}
                 <input type="hidden" name="action" value="contactForm/sendMessage">
@@ -22,6 +21,8 @@
 			  </div>
 			  
 			</form>		
+	</div>
+
 </section>
 
 	{% endblock %}
