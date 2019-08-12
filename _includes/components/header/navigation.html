@@ -38,7 +38,7 @@
 					    <ul class="o-list-bare">
 					    	{% cache %}
 						        {% for menuMainEntry in menuMainEntries %}
-						    		{% if menuMainEntry.type != "contribute" %}    	
+						    		{% if menuMainEntry.menuLink.type != "contribute" %}    	
 						            	<li {{ macros.isActive(menuMainEntry.slug) }}><a href="{{ menuMainEntry.menuLink.getUrl() }}">{{ menuMainEntry.title }}</a></li>
 						        	{% else %}    	
 						        		<li {{ macros.isActive(menuMainEntry.slug) }}><a class="c-btn_contribute" href="{{ menuMainEntry.menuLink.getUrl() }}">{{ menuMainEntry.title }}</a></li>
