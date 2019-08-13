@@ -6,7 +6,7 @@
 				{{entry.contentText}}
 			</div>
 			{% if button == true %}
-				<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="">{{"learn more"|t}}</a></div>
+				<div class="c-btn_div"><span class="-first"></span><span class="-second"></span><span class="-third"></span><span class="-four"></span><a class="c-btn c-btn--main" href="{{entry.contentLink.getUrl()}}">{{"learn more"|t}}</a></div>
 			{% endif %}
 		</div>
 	</div>
